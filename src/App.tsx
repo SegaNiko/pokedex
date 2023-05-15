@@ -1,13 +1,21 @@
-import './App.css';
-import { Loader } from '@components';
+import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className='App'>
-      Hello Pokedex
-      <Loader />
-    </div>
+import { ErrorPage } from '@components';
+import { Pokedex } from '@pages';
+
+export const App = () => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/'>
+        <Route index element={<Pokedex />} />
+        <Route path='*' element={<ErrorPage />} />
+      </Route>,
+    ),
   );
-}
 
-export default App;
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+};
