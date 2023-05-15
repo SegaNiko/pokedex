@@ -1,12 +1,11 @@
 import gif from '@img/pikachu.gif';
-import { Img } from '@ui-kit';
 
-import './index.scss';
+import { LoaderWrap, LoaderGif } from './styles';
 
 export const Loader = () => {
   return (
-    <div className='loader'>
-      <Img imgSrc={gif} imgAlt='Loader...' />
-    </div>
+    <LoaderWrap>
+      <LoaderGif src={gif} alt='Loader...' />
+    </LoaderWrap>
   );
 };

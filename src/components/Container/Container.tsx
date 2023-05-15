@@ -1,9 +1,9 @@
-import './index.scss';
+import { StylesContainer } from './styles';
 
 interface IContainer {
   children: string | JSX.Element | JSX.Element[];
 }
 
-export function Container({ children }: IContainer) {
-  return <div className='container'>{children}</div>;
-}
+export const Container = ({ children }: IContainer) => {
+  return <StylesContainer>{children}</StylesContainer>;
+};

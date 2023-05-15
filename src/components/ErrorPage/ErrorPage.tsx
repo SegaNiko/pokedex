@@ -1,18 +1,19 @@
 import rocketTeam from '@img/rocket-team.png';
-import { Img } from '@ui-kit';
-
-import './index.scss';
+import { ErrorPageWrap, ErroTextBlack, ErrorBtn, ErrorImg, ErrorTextWhite, ErrorTextWrap, ErrorTitle } from './styles';
+import { Link } from 'react-router-dom';
 
 export const ErrorPage = () => {
   return (
-    <div className='error-page'>
-      <div className='error-page__title'>404</div>
-      <Img imgSrc={rocketTeam} imgAlt='Rocket Team' styleClass='error-page__img' />
-      <div className='error-page__textwrap'>
-        <span className='error-page__text white'>The rocket team </span>
-        <span className='error-page__text black'>has won this time.</span>
-      </div>
-      <div className='error-page__btn'>Go home</div>
-    </div>
+    <ErrorPageWrap>
+      <ErrorTitle>404</ErrorTitle>
+      <ErrorImg src={rocketTeam} alt='Rocket Team' />
+      <ErrorTextWrap>
+        <ErrorTextWhite>The rocket team </ErrorTextWhite>
+        <ErroTextBlack>has won this time.</ErroTextBlack>
+      </ErrorTextWrap>
+      <Link to='/'>
+        <ErrorBtn>Go home</ErrorBtn>
+      </Link>
+    </ErrorPageWrap>
   );
 };
