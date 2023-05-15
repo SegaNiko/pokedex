@@ -7,7 +7,9 @@ export const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/'>
-        <Route index element={<Pokedex />} />
+        <Route path='/pokedex'>
+          <Route index element={<Pokedex />} />
+        </Route>
         <Route path='*' element={<ErrorPage />} />
       </Route>,
     ),
