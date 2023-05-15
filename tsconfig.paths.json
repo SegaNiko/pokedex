@@ -3,9 +3,13 @@
     "baseUrl": ".",
     "paths": {
       "@api/*": ["./src/api/*"],
+      "@pages": ["./src/pages"],
       "@components": ["./src/components/"],
+      "@models/*": ["./src/models/*"],
       "@ui-kit": ["./src/ui-kit/"],
-      "@scss/*": ["./src/scss/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@store/*": ["./src/store/*"],
       "@fonts/*": ["./src/assets/fonts/*"],
       "@img/*": ["./src/assets/img/*"],
       "@consts/*": ["./src/consts/*"]
