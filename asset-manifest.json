@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pokedex/static/css/main.b93bc276.css",
-    "main.js": "/pokedex/static/js/main.cb5f6c2b.js",
+    "main.js": "/pokedex/static/js/main.a7f40d76.js",
     "static/media/Manrope-SemiBold.svg": "/pokedex/static/media/Manrope-SemiBold.a4425ab65d9bfb3b20db.svg",
     "static/media/Manrope-Regular.svg": "/pokedex/static/media/Manrope-Regular.ee588cf0769ca8452a9b.svg",
     "static/media/Manrope-ExtraLight.svg": "/pokedex/static/media/Manrope-ExtraLight.3401c80664d07edf362f.svg",
@@ -20,10 +20,10 @@
     "static/media/Manrope-ExtraLight.woff2": "/pokedex/static/media/Manrope-ExtraLight.4a607fad520d1664e45a.woff2",
     "index.html": "/pokedex/index.html",
     "main.b93bc276.css.map": "/pokedex/static/css/main.b93bc276.css.map",
-    "main.cb5f6c2b.js.map": "/pokedex/static/js/main.cb5f6c2b.js.map"
+    "main.a7f40d76.js.map": "/pokedex/static/js/main.a7f40d76.js.map"
   },
   "entrypoints": [
     "static/css/main.b93bc276.css",
-    "static/js/main.cb5f6c2b.js"
+    "static/js/main.a7f40d76.js"
   ]
 }
