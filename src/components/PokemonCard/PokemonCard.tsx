@@ -18,7 +18,7 @@ interface PokemonProps extends React.HTMLAttributes<HTMLElement> {
   onClick: () => void;
 }
 
-const PokemonCard: React.FC<PokemonProps> = props => {
+export const PokemonCard: React.FC<PokemonProps> = props => {
   const { onClick, pokemon } = props;
   const { id, name, types, sprites } = pokemon;
 
@@ -41,5 +41,3 @@ const PokemonCard: React.FC<PokemonProps> = props => {
     </>
   );
 };
-
-export default PokemonCard;

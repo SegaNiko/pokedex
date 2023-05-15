@@ -21,7 +21,7 @@ interface SelectedPokemon extends React.HTMLAttributes<HTMLElement> {
   pokemon: Pokemon;
 }
 
-const PokemonSelected: React.FC<SelectedPokemon> = props => {
+export const PokemonSelected: React.FC<SelectedPokemon> = props => {
   const { id, moves, weight, stats, types, sprites, name } = props.pokemon;
 
   return (
@@ -59,5 +59,3 @@ const PokemonSelected: React.FC<SelectedPokemon> = props => {
     </PokemonSelectWrap>
   );
 };
-
-export default PokemonSelected;

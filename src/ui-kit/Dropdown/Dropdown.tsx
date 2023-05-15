@@ -31,7 +31,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ options, onChange, selectedT
   };
 
   return (
-    <DropdownWrapper isOpen={isOpen}>
+    <DropdownWrapper isopen={isOpen.toString()}>
       <DropdownHeader onClick={handleHeaderClick}>{capitalizeFirstLetter(selectedValue)}</DropdownHeader>
       {isOpen && (
         <DropdownMenu>

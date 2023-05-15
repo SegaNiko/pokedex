@@ -1,5 +1,4 @@
 import styles from 'styled-components';
-// import { devices } from '@scss/media';
 
 export const LayoutHeader = styles.div`
   width: 100%;

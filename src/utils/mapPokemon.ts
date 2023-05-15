@@ -1,6 +1,6 @@
 import { Pokemon, PokemonResponse, PokemonStats, PokemonStatsMaped, PokemonTypeMaped, PokemonType } from "@models/pokemon";
 
- const pokemonStatsMap = (stats: PokemonStats[]): PokemonStatsMaped[] => {
+ const mapPokemonStats = (stats: PokemonStats[]): PokemonStatsMaped[] => {
   const statsMaped = stats.map((pokStat): PokemonStatsMaped => {
     const {base_stat, stat} = pokStat;
 
@@ -12,7 +12,7 @@ import { Pokemon, PokemonResponse, PokemonStats, PokemonStatsMaped, PokemonTypeM
   return statsMaped;
 }
 
- const pokemonTypeMap = (stats: PokemonType[]): PokemonTypeMaped[] => {
+ const mapPokemonType = (stats: PokemonType[]): PokemonTypeMaped[] => {
   const statsMaped = stats.map((pokType): PokemonTypeMaped => {
     const {slot, type} = pokType;
 
@@ -25,16 +25,16 @@ import { Pokemon, PokemonResponse, PokemonStats, PokemonStatsMaped, PokemonTypeM
   return statsMaped;
 }
 
-export const pokemonMap = (pokemonRes : PokemonResponse): Pokemon => {
-  const { data } = pokemonRes;
+export const mapPokemon = (pokemon : PokemonResponse): Pokemon => {
+  const {name, id, moves, types, sprites, weight, stats, } = pokemon
 
   return {
-    name: data.name,
-    id: data.id,
-    moves: data.moves.length,
-    weight: data.weight,
-    stats: pokemonStatsMap(data.stats),
-    types: pokemonTypeMap(data.types),
-    sprites: data.sprites,
+    name: name,
+    id: id,
+    moves: moves.length,
+    weight: weight,
+    stats: mapPokemonStats(stats),
+    types: mapPokemonType(types),
+    sprites: sprites,
   }
 };

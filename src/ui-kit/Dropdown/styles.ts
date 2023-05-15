@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 interface DropdownWrapperProps {
-  isOpen: boolean
+  isopen?: string;
 }
 
 export const DropdownWrapper = styled.div<DropdownWrapperProps>`
   position: relative;
   display: inline-block;
   background: #ffffff6b;
-  border-radius: ${({ isOpen }) => isOpen ? '20px 20px 0 0' : '20px'};
+  border-radius: ${({ isopen }) => isopen === "true" ? '20px 20px 0 0' : '20px'};
   width: 200px;
   border: none;
   font-weight: 300;

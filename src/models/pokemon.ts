@@ -61,7 +61,6 @@ export interface PokemonSprites {
 }
 
 export interface PokemonResponse {
-  data: {
     name: string,
     id: number,
     moves: any[],
@@ -69,16 +68,13 @@ export interface PokemonResponse {
     stats: PokemonStats[],
     types: PokemonType[],
     sprites: PokemonSprites,
-  }
 }
 
 export interface PokemonTypesResponse {
-  data: {
     count: number,
     next:null,
     previous:null,
     results: PokemonTypes[],
-  }
 }
 
 export interface getPokemoonsPayload {

@@ -3,44 +3,38 @@ import axios from 'axios';
 import { Pokemon, PokemonRequestProps, PokemonResponse, PokemonTypesResponse } from "@models/pokemon";
 import { PokemonsRequestProps, PokemonsResponse } from "@models/pokemons";
 import { endpoints }  from '@consts/endpoints';
-import { pokemonMap } from '@utils/pokemonMap';
+import { mapPokemon } from '@utils/mapPokemon';
 
-export const apiPokemons = (params: PokemonsRequestProps) => {
+export const apiPokemons = async (params: PokemonsRequestProps): Promise<PokemonsResponse> => {
   const url = endpoints.pokemons(params);
 
-  return new Promise<PokemonsResponse>((resolve, reject) => {
-    axios({
-      method: 'get',
-      url,
-    })
-      .then((response) => {
-        resolve(response);
-      })
-      .catch(error => console.log('Some Error: ',error))
-  })
+  try {
+    const response = await axios.get<PokemonsResponse>(url);
+    return response.data;
+  } catch (error) {
+    console.log('Some Error: ', error);
+    throw error;
+  }
 };
 
-export const apiPokemon = (params: PokemonRequestProps) => {
-    const url = endpoints.pokemon(params);
+export const apiPokemon = async (params: PokemonRequestProps): Promise<PokemonResponse> => {
+  const url = endpoints.pokemon(params);
 
-    return new Promise<PokemonResponse>((resolve, reject) => {
-      axios({
-        method: 'get',
-        url,
-      })
-        .then((response) => {
-          resolve(response);
-        })
-        .catch(error => console.log('Some Error: ',error))
-    })
+  try {
+    const response = await axios.get<PokemonResponse>(url);
+    return response.data;
+  } catch (error) {
+    console.log('Some Error: ', error);
+    throw error;
+  }
 };
 
 export const apiEachPokemon = async (pokemons: PokemonsRequestProps): Promise<Pokemon[]> => {
   const response = await apiPokemons(pokemons);
 
-  const allPromises: Promise<Pokemon>[] = response.data.results.map((pokemon) => {
+  const allPromises: Promise<Pokemon>[] = response.results.map((pokemon) => {
     return apiPokemon({id: pokemon.name}).then((res) => {
-      return pokemonMap(res);
+      return mapPokemon(res);
     });
   });
 
@@ -49,17 +43,14 @@ export const apiEachPokemon = async (pokemons: PokemonsRequestProps): Promise<Po
   return allPokemons;
 };
 
-export const apiPokemonTypes = () => {
+export const apiPokemonTypes = async (): Promise<PokemonTypesResponse> => {
   const url = endpoints.types;
 
-  return new Promise<PokemonTypesResponse>((resolve, reject) => {
-    axios({
-      method: 'get',
-      url,
-    })
-      .then((res) => {
-        resolve(res);
-      })
-      .catch(error => console.log('Some Error: ', error))
-  })
+  try {
+    const response = await axios.get<PokemonTypesResponse>(url);
+    return response.data;
+  } catch (error) {
+    console.log('Some Error: ', error);
+    throw error;
+  }
 };

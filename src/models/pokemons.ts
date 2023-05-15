@@ -5,10 +5,8 @@ export interface Pokemons {
 }
 
 export interface PokemonsResponse {
-  data: {
-    count: number,
-    results: Pokemons[],
-  }
+  count: number,
+  results: Pokemons[],
 }
 
 export interface PokemonsRequestProps {

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { devices } from '@styles/media';
-export const ModalWrapper = styled.div<{ isOpen: boolean }>`
-  display: ${({ isOpen }) => isOpen ? 'flex' : 'none'};
+
+export const ModalWrapper = styled.div<{ isopen: string }>`
+  display: ${({ isopen }) => isopen === 'true' ? 'flex' : 'none'};
   justify-content: center;
   align-items: center;
   position: fixed;

@@ -14,7 +14,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   };
 
   return (
-    <ModalWrapper isOpen={isOpen}>
+    <ModalWrapper isopen={isOpen.toString()}>
       <ModalCloseWrap onClick={handleClose} />
       <ModalContent>
         <CloseButton onClick={handleClose}>X</CloseButton>

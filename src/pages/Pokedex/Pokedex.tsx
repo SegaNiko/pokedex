@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import PokemonCard from './components/PokemonCard/PokemonCard';
-import PokemonSelected from './components/PokemonSelected/PokemonSelected';
-import { Container, Loader, Layout } from '@components';
+import { Container, Loader, Layout, PokemonSelected, PokemonCard } from '@components';
 import { PokedexWrap, PokedexBtn, PokedexBtnWrap, PokedexDropdownWrap, PokedexNoMutch } from './styles';
 import { Modal, Dropdown } from '@ui-kit';
 
@@ -33,7 +31,7 @@ export const Pokedex = () => {
         dispatch(getPokemons(res));
       });
       apiPokemonTypes().then(res => {
-        dispatch(getPokemonsTypes(res.data.results));
+        dispatch(getPokemonsTypes(res.results));
         setLoadingPokemons(false);
       });
     }
@@ -59,7 +57,7 @@ export const Pokedex = () => {
 
   const renderPokemons = () => {
     const render = filterPokemonByType(pokemons, selectedType).map(pokemon => (
-      <PokemonCard pokemon={pokemon} onClick={() => handleOpenSelectedPokemon(pokemon)} />
+      <PokemonCard key={pokemon.name} pokemon={pokemon} onClick={() => handleOpenSelectedPokemon(pokemon)} />
     ));
 
     if (render.length === 0) {
