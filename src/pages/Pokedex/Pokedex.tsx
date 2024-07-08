@@ -5,9 +5,9 @@ import { Container, Loader, Layout, PokemonSelected, PokemonCard } from '@compon
 import { PokedexWrap, PokedexBtn, PokedexBtnWrap, PokedexDropdownWrap, PokedexNoMutch } from './styles';
 import { Modal, Dropdown } from '@ui-kit';
 
-import { getMorePokemons, getPokemons, getPokemonsTypes } from '@store/PokedexSlice';
+import { getMorePokemons, getPokemons } from '@store/PokedexSlice';
 import { selectPageParams, selectPokemons, selectTypes } from '@store/store';
-import { apiEachPokemon, apiPokemonTypes } from '@api/apiPokedex';
+import { apiEachPokemon } from '@api/apiPokedex';
 import { Pokemon, emptyPokemon } from '@models/pokemon';
 import { filterPokemonByType } from '@utils/filterPokemonByType';
 
@@ -29,9 +29,6 @@ export const Pokedex = () => {
       setLoadingPokemons(true);
       apiEachPokemon({ limit, offset }).then(res => {
         dispatch(getPokemons(res));
-      });
-      apiPokemonTypes().then(res => {
-        dispatch(getPokemonsTypes(res.results));
         setLoadingPokemons(false);
       });
     }
@@ -81,6 +78,7 @@ export const Pokedex = () => {
   return (
     <>
       <Layout />
+
       <Container>
         <PokedexDropdownWrap>
           <Dropdown options={types} selectedType={selectedType} onChange={handleChangeDropDown} />
